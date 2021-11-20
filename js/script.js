@@ -13,14 +13,22 @@ new Vue({
         ],
         // SERVE PER DARE LA POSIZIONE DENTRO ALL'ARRAY IMG"
         play: 0,
+        //SERVE PER POI RICHIAMARE LA FUNZIONE ALL'INERNO CHE è IL SETINTERVAL
+        intervalSlot:null,
     },
     // APPENA LA PAGINA VERRà CARICATA COMPLETAMENTE SI ESEGUIRA LA SEGUENTE FUNZIONE
     created() {
-        cavolo = setInterval(() => {
-            this.right()
-        }, 4000)
+        this.interval(4000);
     },
     methods: {
+        //QUESTA FUNZIONE MI PERMETTERA DI FERMARE LA CICLICITà DEL SETINTERVAL DICHIARATO ALL'INIZIO E DI FARLA RIPARTIRE
+        interval:function(time){
+            clearInterval(this.intervalSlot);
+            this.intervalSlot = setInterval(() => {
+                this.right()
+            }, time)
+    
+        },
         // AUMENTO DEL VALORE DI PLAY, E CONSEGUENTE CAMBIO VALORE A ZERO NEL CASO IN CUI IL SUO VALORE DIVENTI UGUALE ALLA LUNGHEZZA DI "IMG",RESTART DELLA TRANSIZIONE DELLE IMMAGINI
         right: function () {
             if (this.play === (this.img.length - 1)) {
@@ -28,10 +36,7 @@ new Vue({
             } else {
                 this.play++;
             }
-            clearInterval(cavolo);
-            cavolo = setInterval(() => {
-                this.right()
-            }, 4000)
+            this.interval(4000);
 
         },
         // DIMINUZIONE DEL VALORE DI PLAY, E CONSEGUENTE CAMBIO VALORE DI PLAY NELLA LUNGHEZZA DI "IMG" NEL CASO IN CUI PLAY SCENDA SOTTO LO ZERO,RESTART DELLA TRANSIZIONE DELLE IMMAGINI
@@ -39,13 +44,10 @@ new Vue({
             if (this.play === 0) {
                 this.play = this.img.length - 1;
             } else {
-                this.play--
+                this.play--;
 
             }
-            clearInterval(cavolo);
-            cavolo = setInterval(() => {
-                this.right()
-            }, 4000)
+            this.interval(4000);
 
         },
         //IL PALLINO CON INDEX UGUALE A PLAY AVRA UNA CLASSE COLOR-BLUE
@@ -60,10 +62,7 @@ new Vue({
         //PLAY PRENDERà IL VALORE CHE VERRA MESSO TRA LE PARENTESI
         positionIndex: function (value) {
             this.play = value;
-            clearInterval(cavolo);
-            cavolo = setInterval(() => {
-                this.right()
-            }, 10000)
+            this.interval(10000);
 
         }
 
