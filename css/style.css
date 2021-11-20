@@ -1,0 +1,58 @@
+/*---- IMMAGGINI-TRANSIZIONI----*/
+.row{
+    transition-duration: 2s;
+    transition-timing-function:ease;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 80vh;
+
+}
+
+.bk-0{
+    background-image: url(../img/1.jpg);
+}
+.bk-1{
+    background-image: url(../img/2.jpg);
+}
+.bk-2{
+    background-image: url(../img/3.jpg);
+
+}
+.bk-3{
+    background-image: url(../img/4.jpg);
+
+}
+.bk-4{
+    background-image: url(../img/5.jpg);
+
+}
+
+
+/*---- FRECCIE PER LA TRANSIZIONE DELLE IMMAGINI ----*/
+.col-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.fa-arrow-circle-right,.fa-arrow-circle-left {
+    font-size: 80px;
+}
+
+
+/*---- INDICE POSTO NELLA PARTE BASSA DELLE IMMAGINI ----*/
+.box{
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.fa-circle{
+    padding: 10px 10px;
+}
+
+.color-blue{
+    color: blue;
+}
